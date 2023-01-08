@@ -1,6 +1,6 @@
 {% set name = "duckdb-engine" %}
 {% set package_name = name | replace("-", "_") %}
-{% set version = "0.6.6" %}
+{% set version = "0.6.7" %}
 
 package:
   name: {{ name | lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ package_name }}/{{ package_name }}-{{ version }}.tar.gz
-  sha256: d53490dd6fb797c23bb36dc500b652d1e2071cde52d3d5aa3e7c5f2f7490936b
+  sha256: 97035c0c1c7f83d241f663fb94de8f1a127544f8933eef9a54776f8073feea7a
 
 build:
   number: 0
