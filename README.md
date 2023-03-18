@@ -1,17 +1,17 @@
-About duckdb-engine
-===================
+About duckdb-engine-feedstock
+=============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/duckdb-engine-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/Mause/duckdb_engine
 
 Package license: MIT
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/duckdb-engine-feedstock/blob/main/LICENSE.txt)
-
-Summary: Very very very basic sqlalchemy driver for duckdb
+Summary: SQLAlchemy driver for duckdb
 
 Development: https://github.com/Mause/duckdb_engine
 
-Very very very basic sqlalchemy driver for duckdb
+SQLAlchemy driver for duckdb
 
 Current build status
 ====================
