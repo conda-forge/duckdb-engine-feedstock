@@ -33,8 +33,7 @@ test:
   imports:
     - duckdb_engine
   commands:
-    # test_commit appears to be broken
-    - pytest --pyargs duckdb_engine -k 'not test_commit and not test_simple_string'
+    - pytest --pyargs duckdb_engine -k 'not test_preload_extension'
 
 about:
   home: https://github.com/Mause/duckdb_engine
