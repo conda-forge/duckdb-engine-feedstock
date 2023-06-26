@@ -1,0 +1,24 @@
+From 0fe59620fb419af93a54f7fbd1ec2e50a8d94300 Mon Sep 17 00:00:00 2001
+From: Gil Forsyth <gil@forsyth.dev>
+Date: Mon, 26 Jun 2023 11:11:15 -0400
+Subject: [PATCH] skip motherduck test
+
+---
+ duckdb_engine/tests/test_integration.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/duckdb_engine/tests/test_integration.py b/duckdb_engine/tests/test_integration.py
+index 349c976..cf84585 100644
+--- a/duckdb_engine/tests/test_integration.py
++++ b/duckdb_engine/tests/test_integration.py
+@@ -24,6 +24,7 @@ def test_integration(engine: Engine) -> None:
+         conn.execute(text("select * from test_df"))
+ 
+ 
++@mark.skip(reason="no motherduck tests on conda-forge")
+ @mark.remote_data
+ @mark.skipif(
+     "dev" in duckdb.__version__, reason="md extension not available for dev builds"  # type: ignore[attr-defined]
+-- 
+2.34.1
+

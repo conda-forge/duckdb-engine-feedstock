@@ -9,6 +9,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ package_name }}/{{ package_name }}-{{ version }}.tar.gz
   sha256: f51d12beb3d5697702323750c25461248a139cbbb50afdb3e5accde0605dad2a
+  patches:
+    - 0001-skip-motherduck-test.patch
 
 build:
   number: 0
