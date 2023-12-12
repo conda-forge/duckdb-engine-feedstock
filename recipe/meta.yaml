@@ -11,7 +11,7 @@ source:
   sha256: 019696f4585af7e903c350c196df778334ff1739a164bb9f752630fb0886a8b0
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
@@ -24,6 +24,7 @@ requirements:
     - python >=3.7
     - python-duckdb >=0.4.0
     - sqlalchemy >=1.3.19
+    - packaging >=21.3
 
 test:
   requires:
