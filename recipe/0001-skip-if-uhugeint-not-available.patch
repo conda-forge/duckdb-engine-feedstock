@@ -1,0 +1,38 @@
+From b03553762c10bbb81a1827619bfc13da96d5faf9 Mon Sep 17 00:00:00 2001
+From: Gil Forsyth <gil@forsyth.dev>
+Date: Wed, 7 Feb 2024 11:06:15 -0500
+Subject: [PATCH] skip if uhugeint not available
+
+---
+ duckdb_engine/tests/test_datatypes.py | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/duckdb_engine/tests/test_datatypes.py b/duckdb_engine/tests/test_datatypes.py
+index 2f9eebc..53ab5ff 100644
+--- a/duckdb_engine/tests/test_datatypes.py
++++ b/duckdb_engine/tests/test_datatypes.py
+@@ -3,6 +3,7 @@ from typing import Type
+ from uuid import uuid4
+ 
+ import duckdb
++from packaging.version import Version
+ from pytest import importorskip, mark
+ from sqlalchemy import Column, Integer, MetaData, String, Table, inspect, text
+ from sqlalchemy.dialects.postgresql import UUID
+@@ -19,6 +20,13 @@ from ..datatypes import Map, Struct, types
+ def test_unsigned_integer_type(
+     engine: Engine, session: Session, coltype: Type[Integer]
+ ) -> None:
++    if getattr(coltype, "name", None) == "UHugeInt" and Version(
++        duckdb.__version__
++    ) < Version("0.9.3"):
++        import pytest
++
++        pytest.skip("UHugeInt not an available type")
++
+     Base = declarative_base()
+ 
+     tname = "table"
+-- 
+2.34.1
+
