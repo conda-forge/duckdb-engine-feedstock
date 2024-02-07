@@ -9,6 +9,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ package_name }}/{{ package_name }}-{{ version }}.tar.gz
   sha256: ea7004c689e1f17b2e2d1734c522aa8a7d56366bfbeeddbe8a02dc6a6c36dc15
+  patches:
+    - 0001-skip-if-uhugeint-not-available.patch 
 
 build:
   number: 0
