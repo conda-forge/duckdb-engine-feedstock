@@ -149,4 +149,5 @@ Feedstock Maintainers
 
 * [@cpcloud](https://github.com/cpcloud/)
 * [@gforsyth](https://github.com/gforsyth/)
+* [@pavelzw](https://github.com/pavelzw/)
 
