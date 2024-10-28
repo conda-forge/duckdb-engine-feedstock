@@ -33,6 +33,7 @@ test:
     - hypothesis >=6.68.2,<7
     - pandas >=1,<2
     - snapshottest
+    - pyarrow
   imports:
     - duckdb_engine
   commands:
