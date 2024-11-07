@@ -1,14 +1,15 @@
 {% set name = "duckdb-engine" %}
 {% set package_name = name | replace("-", "_") %}
-{% set version = "0.13.2" %}
+{% set version = "0.13.5" %}
+{% set python_min = python_min|default("3.8") %}
 
 package:
   name: {{ name | lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ package_name }}/{{ package_name }}-{{ version }}.tar.gz
-  sha256: 84cc4ad424345d9e6cf2df58f979caff66d755b0bc5b03043b918de5c2b05925
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ package_name }}/{{ package_name }}-{{ version }}.tar.gz
+  sha256: 5265cf2401c7053d34ceb8222cf03eb5e7a51c73e999ad4b286769e3546e9532
 
 build:
   number: 0
@@ -17,22 +18,24 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}.*
     - pip
     - poetry
   run:
-    - python >=3.7
-    - python-duckdb >=0.4.0
-    - sqlalchemy >=1.3.19
+    - python >={{ python_min }}
+    - python-duckdb >=0.5.0
+    - sqlalchemy >=1.3.22
     - packaging >=21.3
 
 test:
   requires:
-    - pytest >=7,<8
-    - pytest-remotedata >=0.4
-    - hypothesis >=6.68.2,<7
+    - python ={{ python_min }}
+    - pyarrow
+    - pytest >=8.0.0,<9
+    - pytest-remotedata >=0.4.0,<0.5
+    - hypothesis >=6.75.2,<7
     - pandas >=1,<2
-    - snapshottest
+    - snapshottest >=0.6.0,<0.7
   imports:
     - duckdb_engine
   commands:
