@@ -1,6 +1,8 @@
 {% set name = "duckdb-engine" %}
 {% set package_name = name | replace("-", "_") %}
 {% set version = "0.13.5" %}
+{% set python_min = python_min|default("3.8") %}
+
 package:
   name: {{ name | lower }}
   version: {{ version }}
